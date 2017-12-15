@@ -1,0 +1,15 @@
+org.gradle.daemon=true  
+org.gradle.parallel=true  
+org.gradle.configureondemand=true
+
+
+Git
+
+I solved the problem installing the Git from: https://git-for-windows.github.io/ Locate the cert file path:
+
+D:\Program Files\Git\mingw64\ssl\certs\ca-bundle.crt
+Configure the Git path:
+
+git config --system http.sslcainfo "D:\Program Files\Git\mingw64\ssl\certs\ca-bundle.crt"
+Try again
+
