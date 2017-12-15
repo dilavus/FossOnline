@@ -4,6 +4,7 @@ package com.odoo.addons.sales;
 import android.content.Context;
 
 import com.odoo.R;
+import com.odoo.addons.sales.models.SaleOrder;
 import com.odoo.core.support.addons.fragment.BaseFragment;
 import com.odoo.core.support.drawer.ODrawerItem;
 
@@ -29,8 +30,8 @@ public class Sales extends BaseFragment {
     }
 
     @Override
-    public <T> Class<T> database() {
-        return null;
+    public Class<SaleOrder> database() {
+        return SaleOrder.class;
     }
 
 }

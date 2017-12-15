@@ -100,6 +100,18 @@
                 android:resource="@xml/customer_sync_adapter" />
         </service>
 
+        <service android:name=".addons.sales.services.SaleSyncService"
+            android:exported="true"
+            android:process=":sync_tasks">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/sales_sync_adapter" />
+        </service>
+
         <activity
             android:name="com.odoo.addons.customers.CustomerDetails"
             android:windowSoftInputMode="adjustPan" />

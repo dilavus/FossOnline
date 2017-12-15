@@ -186,6 +186,7 @@ public class Customers extends BaseFragment implements ISyncStatusObserverListen
     @Override
     public List<ODrawerItem> drawerMenus(Context context) {
         List<ODrawerItem> items = new ArrayList<>();
+        items.add(new ODrawerItem(KEY).setTitle("Demo").setGroupTitle());
         items.add(new ODrawerItem(KEY).setTitle("Customers")
                 .setIcon(R.drawable.ic_action_customers)
                 .setExtra(extra(Type.Customer))
