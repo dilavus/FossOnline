@@ -100,6 +100,12 @@
                 android:resource="@xml/customer_sync_adapter" />
         </service>
 
+        <provider
+            android:name="com.odoo.addons.sales.providers.SaleProvider"
+            android:authorities="com.odoo.addons.sale.sale_order"
+            android:label="Sale"
+            android:multiprocess="true" />
+
         <service android:name=".addons.sales.services.SaleSyncService"
             android:exported="true"
             android:process=":sync_tasks">
