@@ -68,7 +68,9 @@ public class Sales extends BaseFragment implements LoaderManager.LoaderCallbacks
         super.onViewCreated(view, savedInstanceState);
         mView = view;
         listView = (ListView) mView.findViewById(R.id.listview);
-        listAdapter = new OCursorListAdapter(getActivity(), null, android.R.layout.simple_list_item_1);
+
+        listAdapter = new OCursorListAdapter(getActivity(), null, R.layout.sale_row_item);
+        //listAdapter = new OCursorListAdapter(getActivity(), null, android.R.layout.simple_list_item_1);
         listView.setAdapter(listAdapter);
 
         listAdapter.setOnViewBindListener(this);
@@ -100,14 +102,9 @@ public class Sales extends BaseFragment implements LoaderManager.LoaderCallbacks
             OControls.setText(mView, R.id.title, "No Tasks found");
             OControls.setText(mView, R.id.subTitle, "Swipe to check new tasks");
         }
-        /*if (db().isEmptyTable() && !syncRequested) {
+        if (db().isEmptyTable() && !syncRequested) {
             // Request for sync
             syncRequested = true;
-            onRefresh();
-        }
-        */
-        if (db().isEmptyTable()) {
-            // Request for sync
             onRefresh();
         }
 
@@ -135,7 +132,21 @@ public class Sales extends BaseFragment implements LoaderManager.LoaderCallbacks
     @Override
     public void onViewBind(View view, Cursor cursor, ODataRow row) {
         try {
-            OControls.setText(view, android.R.id.text1, row.getString("name"));
+//            OControls.setText(view, android.R.id.text1, row.getString("name"));
+
+//            OControls.setText(view, android.R.id.text1, (row.getString("partner_name").equals("false"))
+//                    ? "" : row.getString("partner_name"));
+
+//            OControls.setText(view, android.R.id.text1, (row.getString("user_name").equals("false"))
+//                    ? "" : row.getString("user_name"));
+
+            OControls.setText(view, R.id.name, row.getString("name"));
+            OControls.setText(view, R.id.customer_sale_order, (row.getString("partner_name").equals("false"))
+                    ? "" : row.getString("partner_name"));
+            OControls.setText(view, R.id.saleperson, (row.getString("user_name").equals("false") ? " "
+                    : row.getString("user_name")));
+
+
         } catch (Exception e){
             e.printStackTrace();
         }
